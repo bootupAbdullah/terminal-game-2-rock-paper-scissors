@@ -19,7 +19,7 @@ console.dir(creditsButtonElement)
 // let userinput
 let computerinput//defined for 
 let computerChoice = computerMath()
-let userPick = userChoice()
+let resultOfUserChoice = userChoice()
 
 
 // cached referance================================================================
@@ -30,7 +30,7 @@ let userPick = userChoice()
 //Credits
 //quit game function maybe close the Browser?
 
-
+//link player choice to rock button
 
 
 
@@ -58,11 +58,14 @@ function computerMath() {///random logic to choose rock paper or scissors
 
 
 
-function userChoice() { /////prompt user for input, and pass that input later into the evaluate function
-    //user chooses rock,paper or scissors
-    // userPick = prompt(`Rock Paper Scissors   `)
+// function userChoice() { /////prompt user for input, and pass that input later into the evaluate function
+//     //user chooses rock,paper or scissors
+//     rockButton.addEventListener('click', () => {
+//         userPick.textContent = 'Rock'
+//     // userPick = prompt(`Rock Paper Scissors   `)
     
-}
+// })
+// }
 
 
 function evaluateGame(userChoice, computerChoice) {  /// need to define each win /lose ending with logging or some other method
@@ -101,6 +104,8 @@ function evaluateGame(userChoice, computerChoice) {  /// need to define each win
     
 }
 
+// add class to buttons for event listener
+//add event listener to class GameButton adding the innerText to the evaluateGame function
 
 function startGame () {
     console.log(`test`)
