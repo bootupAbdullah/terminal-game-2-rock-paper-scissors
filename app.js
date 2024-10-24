@@ -1,11 +1,21 @@
-const prompt = require('prompt-sync')();
+// const prompt = require('prompt-sync')();
 
 //variables===========================================================
 
 
 // const inputBar = document.getElementById(`input`) // todo
 // const submitBtn = document.getElementById(`submit-button`) //todo
-
+const creditsButtonElement = document.getElementById(`creditsButton`)
+const ulElement = document.querySelector(`ul`)
+const startGameButton = document.getElementById(`startGameButton`)
+const divMainMenu = document.getElementsByClassName(`menu`)
+const bodyElement = document.querySelector(`body`)
+const htmlElement = document.querySelector(`html`)
+console.dir(bodyElement)
+console.dir(divMainMenu)
+console.dir(startGameButton)
+console.dir(ulElement)
+console.dir(creditsButtonElement)
 // let userinput
 let computerinput//defined for 
 let computerChoice = computerMath()
@@ -13,6 +23,18 @@ let userPick = userChoice()
 
 
 // cached referance================================================================
+
+
+//main menu
+//start game
+//Credits
+//quit game function maybe close the Browser?
+
+
+
+
+
+
 
 
 //computer Random logic
@@ -38,7 +60,7 @@ function computerMath() {///random logic to choose rock paper or scissors
 
 function userChoice() { /////prompt user for input, and pass that input later into the evaluate function
     //user chooses rock,paper or scissors
-    userPick = prompt(`Rock Paper Scissors   `)
+    // userPick = prompt(`Rock Paper Scissors   `)
     
 }
 
@@ -79,8 +101,43 @@ function evaluateGame(userChoice, computerChoice) {  /// need to define each win
     
 }
 
-console.log(computerChoice);
-evaluateGame(userChoice(), computerMath())
+
+function startGame () {
+    console.log(`test`)
+    const newBodyElement = document.createElement(`body`)
+    const rockButton = document.createElement(`button`)
+    const paperButton = document.createElement(`button`)
+    const scissorsButton = document.createElement(`button`)
+    rockButton.innerText = `Rock`
+    paperButton.innerText = `Paper`
+    scissorsButton.innerText = `Scissors`
+    htmlElement.appendChild(newBodyElement);
+    newBodyElement.appendChild(rockButton);
+    newBodyElement.appendChild(paperButton);
+    newBodyElement.appendChild(scissorsButton);
+}
+
+
+
+
+
+//Event Handlers==================================================
+
+creditsButtonElement.addEventListener('click', () => {
+    const commentElement = document.createElement('li');
+    commentElement.textContent = `Miles Tarricone, Abdullah Durrani, Justin Strohsnitter`; // replace placeholder text
+    ulElement.appendChild(commentElement);
+})
+let test = startGameButton.addEventListener(`click`,  () => {
+    bodyElement.remove(divMainMenu);
+    startGame()
+})
+
+
+// console.log(computerChoice);
+// evaluateGame(userChoice(), computerMath())
+
+// }
 // computerChoice = `Rock` 
 // console.log(`Rock`)
 // console.log(`Scissors`)
@@ -109,6 +166,4 @@ evaluateGame(userChoice(), computerMath())
         
         //functions=============================================================
         
-        //dom manipulation ========================================================
-        
-
+        //dom manipulation ======================================================
