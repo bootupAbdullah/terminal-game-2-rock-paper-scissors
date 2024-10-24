@@ -1,46 +1,54 @@
+const prompt = require('prompt-sync')();
+
 //variables===========================================================
+
 
 // const inputBar = document.getElementById(`input`) // todo
 // const submitBtn = document.getElementById(`submit-button`) //todo
 
-
 // let userinput
-let computerinput
-
+let computerinput//defined for 
+let computerChoice = computerMath()
+let userPick = userChoice()
 
 
 // cached referance================================================================
 
 
 //computer Random logic
-function computerMath() {
+function computerMath() {///random logic to choose rock paper or scissors
     // 1. is rock
     //2. is scissors
     //3. paper
     let computerResult = (Math.floor(Math.random() * 3) + 1);
     if (computerResult === 1) {
-        console.log(`Rock`)
+        return `Rock`
     }
     else if (computerResult === 2) {
-        console.log(`Scissors`)
+        return `Scissors`
     }   
     else if (computerResult === 3) {
-        console.log(`Paper`)
+        return `Paper`
     }
-
+    
 }
 
-function userChoice() {
+
+
+
+function userChoice() { /////prompt user for input, and pass that input later into the evaluate function
     //user chooses rock,paper or scissors
-
+    userPick = prompt(`Rock Paper Scissors   `)
+    
 }
 
 
-function evaluateGame() {
-    //todo
-    let playerChoice
+function evaluateGame(userChoice, computerChoice) {  /// need to define each win /lose ending with logging or some other method
+    // we need to be able to see who wins and looses, and all of it should be logged
+    //to finish
+    let playerChoice = userChoice
     let compChoice
-
+    
     if (playerChoice === `Rock` && compChoice === `Scissors`) {
         //Player wins
     }
@@ -68,12 +76,19 @@ function evaluateGame() {
     else if (playerChoice === `Paper` && compChoice === `Paper`) {
         //Player Ties
     }
-
+    
 }
 
+console.log(computerChoice);
+evaluateGame(userChoice(), computerMath())
+// computerChoice = `Rock` 
+// console.log(`Rock`)
+// console.log(`Scissors`)
+// console.log(`Paper`)
+// return computerResult
 
-
-
+// computerMath()
+// console.log(computerResult);
 // function computerChoice(computerMath) {
     
 // }
@@ -81,19 +96,19 @@ function evaluateGame() {
 
 
 // console.log(computerMath());
-computerMath()
+// computerMath()
 // console.log();
 
 
 // function startGame() {
-//     const userChoice = inputBar.value//could be buttons
-//     if (userChoice === `Rock`) {
-//         if
-//     }
-// } 
-
-//functions=============================================================
-
-//dom manipulation ========================================================
-
+    //     const userChoice = inputBar.value//could be buttons
+    //     if (userChoice === `Rock`) {
+        //         if
+        //     }
+        // } 
+        
+        //functions=============================================================
+        
+        //dom manipulation ========================================================
+        
 
