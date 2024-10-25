@@ -11,6 +11,7 @@ const startGameButton = document.getElementById(`startGameButton`)
 const divMainMenu = document.getElementsByClassName(`menu`)
 const bodyElement = document.querySelector(`body`)
 const htmlElement = document.querySelector(`html`)
+const userDecisionButtons = document.querySelectorAll('.userDecisionButton')
 console.dir(bodyElement)
 console.dir(divMainMenu)
 console.dir(startGameButton)
@@ -19,7 +20,7 @@ console.dir(creditsButtonElement)
 // let userinput
 let computerinput//defined for 
 let computerChoice = computerMath()
-let resultOfUserChoice = userChoice()
+//// let resultOfUserChoice = userChoice()
 
 
 // cached referance================================================================
@@ -57,12 +58,14 @@ function computerMath() {///random logic to choose rock paper or scissors
 
 
 
+// created userDecision class in order to feed inner text from button to usechoice 
+// to provide decision for the // //userchoice function
 
-// function userChoice() { /////prompt user for input, and pass that input later into the evaluate function
+// // function userChoice() { /////prompt user for input, and pass that input later into the evaluate function
 //     //user chooses rock,paper or scissors
-//     rockButton.addEventListener('click', () => {
+//     document.getElementById(`creditsButton`).addEventListener('click', () => {
 //         userPick.textContent = 'Rock'
-//     // userPick = prompt(`Rock Paper Scissors   `)
+    // userPick = prompt(`Rock Paper Scissors   `)
     
 // })
 // }
@@ -71,38 +74,81 @@ function computerMath() {///random logic to choose rock paper or scissors
 function evaluateGame(userChoice, computerChoice) {  /// need to define each win /lose ending with logging or some other method
     // we need to be able to see who wins and looses, and all of it should be logged
     //to finish
+    console.log('evalGameTest')
     let playerChoice = userChoice
-    let compChoice
+    let compChoice = computerChoice
+  
     
     if (playerChoice === `Rock` && compChoice === `Scissors`) {
         //Player wins
+        console.log('user chose rock')
+        console.log('computer chose scissors')
+
+        // const winningDeclaration = document.createElement('h1')
+        // bodyElement.appendChild(winningDeclaration)
+        winningDeclaration.innerHTML = 'YOU FUCKIN WON!'
     }
     else if (playerChoice === `Rock` && compChoice === `Paper`) {
-        //Player looses
+        // console.log('Player looses')
+
+        console.log('user chose rock')
+        console.log('computer chose paper')
     }
     else if (playerChoice === `Rock` && compChoice === `Rock`) {
         //Player Ties
+        console.log('user chose rock')
+        console.log('computer chose Rock')
     }
     else if (playerChoice === `Scissors` && compChoice === `Paper`) {
         //Player wins
+        console.log('user chose scissors')
+        console.log('computer chose paper')
+
+        // const winningDeclaration = document.createElement('h1')
+        // bodyElement.appendChild(winningDeclaration)
+        winningDeclaration.innerHTML = 'YOU FUCKIN WON!'
     }
     else if (playerChoice === `Scissors` && compChoice === `Rock`) {
         //Player looses
+        console.log('user chose scissors')
+        console.log('computer chose rock')
     }
     else if (playerChoice === `Scissors` && compChoice === `Scissors`) {
         //Player Ties
+        console.log('user chose scissors')
+        console.log('computer chose scissors')
     }
     else if (playerChoice === `Paper` && compChoice === `Scissors`) {
         //Player Looses
+        console.log('user chose paper')
+        console.log('computer chose scissors')
     }
     else if (playerChoice === `Paper` && compChoice === `Rock`) {
         //Player wins
+       
+        console.log('user chose paper')
+        console.log('computer chose rock')
+
+        // const winningDeclaration = document.createElement('h1')
+        // newBodyElement.appendChild(winningDeclaration)
+        winningDeclaration.innerHTML = 'YOU FUCKIN WON!'
     }
     else if (playerChoice === `Paper` && compChoice === `Paper`) {
         //Player Ties
+        console.log('user chose paper')
+        console.log('computer chose paper')
     }
     
 }
+
+// function playerWins () {
+//     const winningDeclaration = document.createElement('h1')
+//     winningDeclaration.innerText('YOU FUCKIN WON!')
+//     newbodyElement.appendChild(winningDeclaration)
+// }
+//make a function for player win and player loss
+//make outside of function and then call computer wins function
+//will display 
 
 // add class to buttons for event listener
 //add event listener to class GameButton adding the innerText to the evaluateGame function
@@ -113,6 +159,7 @@ function startGame () {
     const rockButton = document.createElement(`button`)
     const paperButton = document.createElement(`button`)
     const scissorsButton = document.createElement(`button`)
+    const winningDeclaration = document.createElement('h1')
     rockButton.innerText = `Rock`
     paperButton.innerText = `Paper`
     scissorsButton.innerText = `Scissors`
@@ -120,8 +167,35 @@ function startGame () {
     newBodyElement.appendChild(rockButton);
     newBodyElement.appendChild(paperButton);
     newBodyElement.appendChild(scissorsButton);
+    newBodyElement.appendChild(winningDeclaration)
+    console.dir(winningDeclaration)
+    rockButton.setAttribute('class', 'userDecisionButton')
+    paperButton.setAttribute('class', 'userDecisionButton')
+    scissorsButton.setAttribute('class', 'userDecisionButton')
+
+    // const rockButtonTest = document.getElementsByClassName('userDecisionButton')
+    rockButton.addEventListener('click', () => {
+    const rockChoice = 'Rock'
+    console.log('testRock')
+    evaluateGame(rockChoice, computerMath())
+})
+    paperButton.addEventListener('click', () => {
+        const paperChoice = 'Paper'
+        console.log('testPaper')
+        evaluateGame(paperChoice, computerMath())
+
+})
+    scissorsButton.addEventListener('click', () => {
+    const scissorsChoice = 'Scissors'
+    console.log('testScissors')
+    evaluateGame(scissorsChoice, computerMath())
+
+})
+
+ //add quit game button w operation that refreshes page -- brings us back to main menu
 }
 
+// ====== Test Handlers
 
 
 
@@ -138,9 +212,20 @@ let test = startGameButton.addEventListener(`click`,  () => {
     startGame()
 })
 
+// userDecisionButtons.forEach((button) => {
+//     button.addEventListener('click', (event) => {
+// // create constant to pass into game function
+//     const userChoiceChoice = event.target.innerText
+//     console.dir(userChoice)
+//     })
+// })
+
+// userDecisionButtons.addEventListener('click', () => {
+//     console.log('works')
+// })
 
 // console.log(computerChoice);
-// evaluateGame(userChoice(), computerMath())
+// // evaluateGame(userChoice(), computerMath())
 
 // }
 // computerChoice = `Rock` 
@@ -163,8 +248,8 @@ let test = startGameButton.addEventListener(`click`,  () => {
 
 
 // function startGame() {
-    //     const userChoice = inputBar.value//could be buttons
-    //     if (userChoice === `Rock`) {
+    // //     const userChoice = inputBar.value//could be buttons
+       // // if (userChoice === `Rock`) {
         //         if
         //     }
         // } 
