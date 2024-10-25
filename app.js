@@ -12,6 +12,8 @@ const divMainMenu = document.getElementsByClassName(`menu`)
 const bodyElement = document.querySelector(`body`)
 const htmlElement = document.querySelector(`html`)
 const userDecisionButtons = document.querySelectorAll('.userDecisionButton')
+const winningDeclaration = document.createElement('h1')
+const playerAndComputerChoice = document.createElement('h2')
 console.dir(bodyElement)
 console.dir(divMainMenu)
 console.dir(startGameButton)
@@ -87,6 +89,7 @@ function evaluateGame(userChoice, computerChoice) {  /// need to define each win
         // const winningDeclaration = document.createElement('h1')
         // bodyElement.appendChild(winningDeclaration)
         winningDeclaration.innerHTML = 'YOU FUCKIN WON!'
+        playerAndComputerChoice.innerHTML = `You chose ${playerChoice}, Computer chose ${compChoice}`
     }
     else if (playerChoice === `Rock` && compChoice === `Paper`) {
         // console.log('Player looses')
@@ -107,6 +110,7 @@ function evaluateGame(userChoice, computerChoice) {  /// need to define each win
         // const winningDeclaration = document.createElement('h1')
         // bodyElement.appendChild(winningDeclaration)
         winningDeclaration.innerHTML = 'YOU FUCKIN WON!'
+        playerAndComputerChoice.innerHTML = `You chose ${playerChoice}, Computer chose ${compChoice}`
     }
     else if (playerChoice === `Scissors` && compChoice === `Rock`) {
         //Player looses
@@ -132,6 +136,7 @@ function evaluateGame(userChoice, computerChoice) {  /// need to define each win
         // const winningDeclaration = document.createElement('h1')
         // newBodyElement.appendChild(winningDeclaration)
         winningDeclaration.innerHTML = 'YOU FUCKIN WON!'
+        playerAndComputerChoice.innerHTML = `You chose ${playerChoice}, Computer chose ${compChoice}`
     }
     else if (playerChoice === `Paper` && compChoice === `Paper`) {
         //Player Ties
@@ -153,13 +158,15 @@ function evaluateGame(userChoice, computerChoice) {  /// need to define each win
 // add class to buttons for event listener
 //add event listener to class GameButton adding the innerText to the evaluateGame function
 
+
+
 function startGame () {
     console.log(`test`)
     const newBodyElement = document.createElement(`body`)
     const rockButton = document.createElement(`button`)
     const paperButton = document.createElement(`button`)
     const scissorsButton = document.createElement(`button`)
-    const winningDeclaration = document.createElement('h1')
+    
     rockButton.innerText = `Rock`
     paperButton.innerText = `Paper`
     scissorsButton.innerText = `Scissors`
@@ -168,6 +175,7 @@ function startGame () {
     newBodyElement.appendChild(paperButton);
     newBodyElement.appendChild(scissorsButton);
     newBodyElement.appendChild(winningDeclaration)
+    newBodyElement.appendChild(playerAndComputerChoice)
     console.dir(winningDeclaration)
     rockButton.setAttribute('class', 'userDecisionButton')
     paperButton.setAttribute('class', 'userDecisionButton')
