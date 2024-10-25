@@ -1,0 +1,24 @@
+@keyframes pulse {
+100% {
+    background-color: #eb0f6e
+}
+100% {
+    background-color: #1CCD0F;
+}
+}
+
+
+h1 {
+
+    font-family:Arial, Helvetica, sans-serif;
+    color: red;
+}
+
+button {
+    background: red;
+    animation: pulse  01s infinite;
+    margin: 2px;
+    padding: 3px;
+
+}
+

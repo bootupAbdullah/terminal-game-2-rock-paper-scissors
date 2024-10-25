@@ -1,5 +1,21 @@
 // const prompt = require('prompt-sync')();
 
+//references=========================================================== 
+
+// co-pilot was used to research the following topics:
+// how to create a class using javascript
+// how to refresh the page using javascript
+// how to delete an html element
+
+//mdn web docs_ was used to research the following topics:
+// element: innerHTML property
+// document: querySelector() method
+
+// dalle was used to create images for the game
+
+// animation for buttons was found in an intro for css lecture link
+
+
 //variables===========================================================
 
 
@@ -35,11 +51,6 @@ let computerChoice = computerMath()
 
 //link player choice to rock button
 
-
-
-
-
-
 //computer Random logic
 function computerMath() {///random logic to choose rock paper or scissors
     // 1. is rock
@@ -57,7 +68,6 @@ function computerMath() {///random logic to choose rock paper or scissors
     }
     
 }
-
 
 
 // created userDecision class in order to feed inner text from button to usechoice 
@@ -89,18 +99,22 @@ function evaluateGame(userChoice, computerChoice) {  /// need to define each win
         // const winningDeclaration = document.createElement('h1')
         // bodyElement.appendChild(winningDeclaration)
         winningDeclaration.innerHTML = 'YOU FUCKIN WON!'
-        playerAndComputerChoice.innerHTML = `You chose ${playerChoice}, Computer chose ${compChoice}`
+        playerAndComputerChoice.innerHTML = `Your ${playerChoice} smashed the Computer's ${compChoice}!`
     }
     else if (playerChoice === `Rock` && compChoice === `Paper`) {
         // console.log('Player looses')
 
         console.log('user chose rock')
         console.log('computer chose paper')
+        winningDeclaration.innerHTML = 'You lost, try again!'
+        playerAndComputerChoice.innerHTML = `Your ${playerChoice} was covered by the Computer's ${compChoice}!`
     }
     else if (playerChoice === `Rock` && compChoice === `Rock`) {
         //Player Ties
         console.log('user chose rock')
         console.log('computer chose Rock')
+        winningDeclaration.innerHTML = 'Game tied!'
+        playerAndComputerChoice.innerHTML = `You and the Computer both chose ${playerChoice}!`
     }
     else if (playerChoice === `Scissors` && compChoice === `Paper`) {
         //Player wins
@@ -110,22 +124,31 @@ function evaluateGame(userChoice, computerChoice) {  /// need to define each win
         // const winningDeclaration = document.createElement('h1')
         // bodyElement.appendChild(winningDeclaration)
         winningDeclaration.innerHTML = 'YOU FUCKIN WON!'
-        playerAndComputerChoice.innerHTML = `You chose ${playerChoice}, Computer chose ${compChoice}`
+        playerAndComputerChoice.innerHTML = `Your ${playerChoice} cut the Computer's ${compChoice}!`
     }
     else if (playerChoice === `Scissors` && compChoice === `Rock`) {
         //Player looses
         console.log('user chose scissors')
         console.log('computer chose rock')
+
+        winningDeclaration.innerHTML = 'You lost, try again!'
+        playerAndComputerChoice.innerHTML = `Your ${playerChoice} got ${compChoice}ed by the Computer!`
     }
     else if (playerChoice === `Scissors` && compChoice === `Scissors`) {
         //Player Ties
         console.log('user chose scissors')
         console.log('computer chose scissors')
+
+        winningDeclaration.innerHTML = 'Game tied!'
+        playerAndComputerChoice.innerHTML = `You and the computer both chose ${playerChoice}`
     }
     else if (playerChoice === `Paper` && compChoice === `Scissors`) {
         //Player Looses
         console.log('user chose paper')
         console.log('computer chose scissors')
+
+        winningDeclaration.innerHTML = 'You lost, try again!'
+        playerAndComputerChoice.innerHTML = `Your paper ${playerChoice} was cut by the Computer's ${compChoice}!`
     }
     else if (playerChoice === `Paper` && compChoice === `Rock`) {
         //Player wins
@@ -142,6 +165,9 @@ function evaluateGame(userChoice, computerChoice) {  /// need to define each win
         //Player Ties
         console.log('user chose paper')
         console.log('computer chose paper')
+
+        winningDeclaration.innerHTML = 'YOU FUCKIN WON!'
+        playerAndComputerChoice.innerHTML = `Your ${playerChoice} covered by the Computer's ${compChoice}!`
     }
     
 }
@@ -166,7 +192,7 @@ function startGame () {
     const rockButton = document.createElement(`button`)
     const paperButton = document.createElement(`button`)
     const scissorsButton = document.createElement(`button`)
-    
+    // winningDeclaration.innerHTML = 'YOU FUCKIN WON!' // this was moved to the global scope or 'pre-script' because it did not work here.
     rockButton.innerText = `Rock`
     paperButton.innerText = `Paper`
     scissorsButton.innerText = `Scissors`
